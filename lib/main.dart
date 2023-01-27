@@ -1,3 +1,4 @@
+import 'package:code_challenge/app/calculate/presenter/controller/calculate_controller.dart';
 import 'package:code_challenge/app/home/presenter/controller/home_controller.dart';
 import 'package:code_challenge/app/home/presenter/home_page.dart';
 import 'package:code_challenge/main_widget.dart';
@@ -11,6 +12,7 @@ void main() async {
     MultiProvider(
       providers: [  
         ChangeNotifierProvider(create: (context) => HomeController()),
+        ChangeNotifierProvider(create: (context) => CalculateController()),
       ], 
       child: const MainWidgetApp(),
     )

@@ -1,4 +1,5 @@
-﻿import 'package:code_challenge/app/home/presenter/home_page.dart';
+﻿import 'package:code_challenge/app/calculate/presenter/calculate_page.dart';
+import 'package:code_challenge/app/home/presenter/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MainWidgetApp extends StatelessWidget {
@@ -14,8 +15,9 @@ class MainWidgetApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, 
       initialRoute: '/',
       routes: {
-         "/": (context) => const HomePage(),
-         "/home":(context) => const HomePage()
+         "/": (context) => const CalculatePage(),
+         "/home":(context) => const HomePage(),
+         "/calculate":(context) => const HomePage(),
       },
     );
   }
