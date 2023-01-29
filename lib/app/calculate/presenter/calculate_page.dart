@@ -23,9 +23,9 @@ class CalculatePage extends StatelessWidget {
         controller: controller.pageController,
         children: [
           WallOnePage(context: context, controller: controller),
-          const WallTwoPage(),
-          const WallThreePage(),
-          const WallFourPage()
+          WallTwoPage(context: context, controller: controller),
+          WallThreePage(context: context, controller: controller),
+          WallFourPage(context: context, controller: controller),
         ],
       ),
     );

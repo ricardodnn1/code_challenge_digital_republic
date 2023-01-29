@@ -9,4 +9,8 @@ class CalculateController extends ChangeNotifier {
     notifyListeners();
   }
 
+  calculate() async {
+    
+  }
+
 }

@@ -1,11 +1,18 @@
-﻿import 'package:flutter/material.dart';
+﻿import 'package:code_challenge/app/calculate/presenter/controller/calculate_controller.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WallFourPage extends StatelessWidget {
-  const WallFourPage({super.key});
+  final BuildContext context;
+  final CalculateController controller;
+  const WallFourPage({super.key, required this.context, required this.controller});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    context = this.context;
+    var controller = this.controller;
+
    return Container(
        padding: const EdgeInsets.all(15.0),
        width: double.infinity,
@@ -29,7 +36,7 @@ class WallFourPage extends StatelessWidget {
                 child: Text('Veja a quantidade de tinta necessária para pintar a sua sala!', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
               ),
               const SizedBox(height: 20),
-              Text('Pare numero 1:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
+              Text('Pare numero 4:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
               const SizedBox(height: 20),
               Text('Altura:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
               const SizedBox(height: 4),

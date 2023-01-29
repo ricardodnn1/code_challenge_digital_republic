@@ -1,11 +1,18 @@
-﻿import 'package:flutter/material.dart';
+﻿import 'package:code_challenge/app/calculate/presenter/controller/calculate_controller.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WallThreePage extends StatelessWidget {
-  const WallThreePage({super.key});
+  final BuildContext context;
+  final CalculateController controller;
+  const WallThreePage({super.key, required this.context, required this.controller});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    context = this.context;
+    var controller = this.controller;
+
     return Container(
        padding: const EdgeInsets.all(15.0),
        width: double.infinity,
@@ -29,7 +36,7 @@ class WallThreePage extends StatelessWidget {
                 child: Text('Veja a quantidade de tinta necessária para pintar a sua sala!', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
               ),
               const SizedBox(height: 20),
-              Text('Pare numero 1:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
+              Text('Parede numero 3:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
               const SizedBox(height: 20),
               Text('Altura:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
               const SizedBox(height: 4),
@@ -91,52 +98,107 @@ class WallThreePage extends StatelessWidget {
                 ),
             ),
             const SizedBox(height: 20),
-            Container(  
-              height: 40,
-              color: Colors.transparent,
-              child:  SizedBox( 
-              child: ElevatedButton(
-                onPressed: () async {  
-                
-                },
-                style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    shadowColor: const Color(0xFF8A9595),
-                    padding: EdgeInsets.zero,
-                    shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8))),
-                child: Ink(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(colors: [Color(0xFFf1471f), Color(0xFFf6921e)]),
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Color(0xFFFFFFFF),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(  
+                  height: 40,
+                  width: size.width / 2.2,
+                  color: Colors.transparent,
+                  child:  SizedBox( 
+                  child: ElevatedButton(
+                    onPressed: () async {  
+                      controller.goToPage(1);
+                    },
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        shadowColor: const Color(0xFF8A9595),
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8))),
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(colors: [Color(0xFFf1471f), Color(0xFFf6921e)]),
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0xFFFFFFFF),
+                          ),
+                          BoxShadow(
+                            color:Color(0xFFFFFFFF),
+                            spreadRadius: -12.0,
+                            blurRadius: 8.0,
+                          ),
+                        ],
                       ),
-                      BoxShadow(
-                        color:Color(0xFFFFFFFF),
-                        spreadRadius: -12.0,
-                        blurRadius: 8.0,
-                      ),
-                    ],
-                  ),
-                  child: Container( 
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [ 
-                          Text(
-                            'Processeguir',
-                            style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600),
-                            ),
-                          const SizedBox(width: 10,),
-                          const Icon(Icons.arrow_circle_right_rounded)
-                          ],
+                      child: Container( 
+                        alignment: Alignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [ 
+                            const Icon(Icons.arrow_circle_left_rounded),
+                            const SizedBox(width: 10,),
+                              Text(
+                              'Voltar',
+                              style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
+                Container(  
+                  height: 40,
+                  color: Colors.transparent,
+                  width: size.width / 2.2,
+                  child:  SizedBox( 
+                  child: ElevatedButton(
+                    onPressed: () async {  
+                       controller.goToPage(3);
+                    },
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        shadowColor: const Color(0xFF8A9595),
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8))),
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(colors: [Color(0xFFf1471f), Color(0xFFf6921e)]),
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0xFFFFFFFF),
+                          ),
+                          BoxShadow(
+                            color:Color(0xFFFFFFFF),
+                            spreadRadius: -12.0,
+                            blurRadius: 8.0,
+                          ),
+                        ],
+                      ),
+                      child: Container( 
+                        alignment: Alignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [ 
+                              Text(
+                                'Processeguir',
+                                style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600),
+                                ),
+                              const SizedBox(width: 10,),
+                              const Icon(Icons.arrow_circle_right_rounded)
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
