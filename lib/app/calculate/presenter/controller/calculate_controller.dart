@@ -2,6 +2,7 @@
 
 class CalculateController extends ChangeNotifier {
   PageController pageController = PageController();
+  
   TextEditingController heightWallA = TextEditingController();
   TextEditingController lenghtWallA = TextEditingController();
   TextEditingController heightWallB = TextEditingController();
@@ -144,22 +145,22 @@ class CalculateController extends ChangeNotifier {
         paintNeeded += wallAreaD;
       } 
 
-      print(paintNeeded);
+      
       int numberOfCansNeeded = (paintNeeded / 5).floor();
 
       if (numberOfCansNeeded / 2 <= 0.5) {
         result = "Você precisará de ${(numberOfCansNeeded / paintSizes[0]).ceil()} lata(s) de tinta de tamanho ${paintSizes[0]} L.";
-        print(result);
+         
       } else if (numberOfCansNeeded / 2 <= 2.5) {
         result =
             "Você precisará de ${(numberOfCansNeeded / paintSizes[1]).ceil()} lata(s) de tinta de tamanho ${paintSizes[1]} L.";
-        print(result);
+        
       } else if (numberOfCansNeeded / 2 <= 3.6) {
         result = "Você precisará de ${(numberOfCansNeeded / paintSizes[2]).ceil()} lata(s) de tinta de tamanho ${paintSizes[2]} L.";
-        print(result);
+         
       } else {
         result = "Você precisará de ${(numberOfCansNeeded / paintSizes[3]).ceil()} lata(s) de tinta de tamanho ${paintSizes[3]} L.";
-        print(result);
+         
       }
 
       notifyListeners();

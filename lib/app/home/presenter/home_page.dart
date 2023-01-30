@@ -23,9 +23,17 @@ class HomePage extends StatelessWidget {
           ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
+            Container(
+              margin: const EdgeInsets.only(top: 75, left: 15, right: 15),
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.black45,
+                borderRadius: BorderRadius.circular(12)
+              ),
+              child: Text("Aplicativo para calcular a quantidade de tinta necessária para pintar uma sala!", textAlign: TextAlign.center, style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 20, color: Colors.white))),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Container(  
