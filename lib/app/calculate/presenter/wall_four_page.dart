@@ -22,6 +22,32 @@ class WallFourPage extends StatelessWidget {
          child: Column(
            crossAxisAlignment: CrossAxisAlignment.start,
            children: [
+              controller.result.isNotEmpty ? 
+              Container(
+                width: size.width, 
+                height: 80, 
+                padding: const EdgeInsets.all(8),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.green.shade400,
+                  borderRadius: BorderRadius.circular(8)
+                ),
+                child: Text('${controller.result}', style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white)),
+              ) : 
+              controller.error.isNotEmpty ? 
+              Container(
+                width: size.width, 
+                height: 80, 
+                padding: const EdgeInsets.all(8),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.red.shade400,
+                  borderRadius: BorderRadius.circular(8)
+                ),
+                child: Text('${controller.error}', style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white)),
+              ) : 
+              Container(),
+              const SizedBox(height: 10),
               Container(
                 padding: const EdgeInsets.only(bottom: 8, top: 8),
                 decoration: const BoxDecoration(
@@ -36,12 +62,13 @@ class WallFourPage extends StatelessWidget {
                 child: Text('Veja a quantidade de tinta necessária para pintar a sua sala!', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
               ),
               const SizedBox(height: 20),
-              Text('Pare numero 4:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
+              Text('Parede numero 4:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
               const SizedBox(height: 20),
               Text('Altura:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
               const SizedBox(height: 4),
               SizedBox(
                 child: TextFormField( 
+                  controller: controller.lenghtWallD,
                   keyboardType: TextInputType.number, 
                     decoration: InputDecoration(
                     hintText: 'Insira altura em metros',
@@ -72,6 +99,7 @@ class WallFourPage extends StatelessWidget {
               const SizedBox(height: 4),
               SizedBox(
                 child: TextFormField( 
+                  controller: controller.heightWallD,
                   keyboardType: TextInputType.number, 
                     decoration: InputDecoration(
                     hintText: 'Insira comprimento em metros',
@@ -130,8 +158,8 @@ class WallFourPage extends StatelessWidget {
               color: Colors.transparent,
               child:  SizedBox( 
               child: ElevatedButton(
-                onPressed: () async {  
-                  await controller.calculate();
+                onPressed: () {   
+                  controller.calculate();
                 },
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
