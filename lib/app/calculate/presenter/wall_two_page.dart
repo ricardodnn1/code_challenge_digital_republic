@@ -42,6 +42,7 @@ class WallTwoPage extends StatelessWidget {
               const SizedBox(height: 4),
               SizedBox(
                 child: TextFormField( 
+                  controller: controller.heightWallB,
                   keyboardType: TextInputType.number, 
                     decoration: InputDecoration(
                     hintText: 'Insira altura em metros',
@@ -68,10 +69,11 @@ class WallTwoPage extends StatelessWidget {
                   ),
               ),
               const SizedBox(height: 20),
-              Text('Comprimento:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500),),
+              Text('Comprimento:', softWrap: true, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500)),
               const SizedBox(height: 4),
               SizedBox(
                 child: TextFormField( 
+                  controller: controller.lenghtWallB,
                   keyboardType: TextInputType.number, 
                     decoration: InputDecoration(
                     hintText: 'Insira comprimento em metros',
@@ -97,6 +99,33 @@ class WallTwoPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8))),
                 ),
             ),
+             const SizedBox(height: 10),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: controller.checkDoorB, 
+                    onChanged: (value) {
+                       controller.changeDoorB();
+                    }
+                  ),
+                  Text('Possui porta', style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500))
+                ],
+              ), 
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: controller.checkWindowB, 
+                    onChanged: (value) {
+                       controller.changeWidowB();
+                    }
+                  ),
+                  Text('Possui janela', style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500))
+                ],
+              ), 
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

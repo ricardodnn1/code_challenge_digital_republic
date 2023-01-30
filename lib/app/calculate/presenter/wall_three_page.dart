@@ -42,6 +42,7 @@ class WallThreePage extends StatelessWidget {
               const SizedBox(height: 4),
               SizedBox(
                 child: TextFormField( 
+                  controller: controller.heightWallC,
                   keyboardType: TextInputType.number, 
                     decoration: InputDecoration(
                     hintText: 'Insira altura em metros',
@@ -72,6 +73,7 @@ class WallThreePage extends StatelessWidget {
               const SizedBox(height: 4),
               SizedBox(
                 child: TextFormField( 
+                  controller: controller.lenghtWallC,
                   keyboardType: TextInputType.number, 
                     decoration: InputDecoration(
                     hintText: 'Insira comprimento em metros',
@@ -97,6 +99,33 @@ class WallThreePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8))),
                 ),
             ),
+             const SizedBox(height: 10),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: controller.checkDoorC, 
+                    onChanged: (value) {
+                       controller.changeDoorC();
+                    }
+                  ),
+                  Text('Possui porta', style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500))
+                ],
+              ), 
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: controller.checkWindowC, 
+                    onChanged: (value) {
+                       controller.changeWidowC();
+                    }
+                  ),
+                  Text('Possui janela', style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500))
+                ],
+              ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

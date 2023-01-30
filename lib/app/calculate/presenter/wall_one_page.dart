@@ -42,6 +42,7 @@ class WallOnePage extends StatelessWidget {
                 const SizedBox(height: 4),
                 SizedBox(
                   child: TextFormField( 
+                    controller: controller.heightWallA,
                     keyboardType: TextInputType.number, 
                       decoration: InputDecoration(
                       hintText: 'Insira altura em metros',
@@ -72,6 +73,7 @@ class WallOnePage extends StatelessWidget {
                 const SizedBox(height: 4),
                 SizedBox(
                   child: TextFormField( 
+                    controller: controller.lenghtWallA,
                     keyboardType: TextInputType.number, 
                       decoration: InputDecoration(
                       hintText: 'Insira comprimento em metros',
@@ -97,6 +99,33 @@ class WallOnePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8))),
                   ),
               ),
+              const SizedBox(height: 10),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: controller.checkDoorA, 
+                    onChanged: (value) {
+                       controller.changeDoorA();
+                    }
+                  ),
+                  Text('Possui porta', style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500))
+                ],
+              ), 
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: controller.checkWindowA, 
+                    onChanged: (value) {
+                       controller.changeWidowA();
+                    }
+                  ),
+                  Text('Possui janela', style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500))
+                ],
+              ),
               const SizedBox(height: 20),
               Container(  
                 height: 40,
@@ -104,7 +133,7 @@ class WallOnePage extends StatelessWidget {
                 child:  SizedBox( 
                 child: ElevatedButton(
                   onPressed: () async {  
-                      controller.goToPage(1);
+                    controller.goToPage(1);
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,

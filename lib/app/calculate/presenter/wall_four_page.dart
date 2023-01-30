@@ -97,14 +97,41 @@ class WallFourPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8))),
                 ),
             ),
-            const SizedBox(height: 20),
+             const SizedBox(height: 10),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: controller.checkDoorD, 
+                    onChanged: (value) {
+                       controller.changeDoorD();
+                    }
+                  ),
+                  Text('Possui porta', style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500))
+                ],
+              ), 
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: controller.checkWindowD, 
+                    onChanged: (value) {
+                       controller.changeWidowD();
+                    }
+                  ),
+                  Text('Possui janela', style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500))
+                ],
+              ),
+              const SizedBox(height: 20),
             Container(  
               height: 40,
               color: Colors.transparent,
               child:  SizedBox( 
               child: ElevatedButton(
                 onPressed: () async {  
-                
+                  await controller.calculate();
                 },
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
