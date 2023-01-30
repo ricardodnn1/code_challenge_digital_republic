@@ -2,7 +2,11 @@
 
 class CalculateController extends ChangeNotifier {
   PageController pageController = PageController();
-  
+  final formOneKey = GlobalKey<FormState>();
+  final formTowKey = GlobalKey<FormState>();
+  final formThreeKey = GlobalKey<FormState>();
+  final formFourKey = GlobalKey<FormState>();
+
   TextEditingController heightWallA = TextEditingController();
   TextEditingController lenghtWallA = TextEditingController();
   TextEditingController heightWallB = TextEditingController();

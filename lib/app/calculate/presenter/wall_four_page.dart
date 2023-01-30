@@ -19,6 +19,7 @@ class WallFourPage extends StatelessWidget {
        height: double.infinity,
        child: SingleChildScrollView(
        child: Form(
+         key: controller.formFourKey,
          child: Column(
            crossAxisAlignment: CrossAxisAlignment.start,
            children: [
@@ -92,6 +93,12 @@ class WallFourPage extends StatelessWidget {
                         borderSide:
                             const BorderSide(color: Color(0xFFf1471f)),
                         borderRadius: BorderRadius.circular(8))),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Campo obrigatório';
+                      }
+                      return null;
+                    },    
                   ),
               ),
               const SizedBox(height: 20),
@@ -123,6 +130,12 @@ class WallFourPage extends StatelessWidget {
                         borderSide:
                             const BorderSide(color: Color(0xFFf1471f)),
                         borderRadius: BorderRadius.circular(8))),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Campo obrigatório';
+                      }
+                      return null;
+                    },
                 ),
             ),
              const SizedBox(height: 10),
@@ -159,7 +172,9 @@ class WallFourPage extends StatelessWidget {
               child:  SizedBox( 
               child: ElevatedButton(
                 onPressed: () {   
-                  controller.calculate();
+                  if(controller.formFourKey.currentState!.validate()) {
+                    controller.calculate();
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
